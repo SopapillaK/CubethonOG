@@ -1054,6 +1054,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8787196466963193123, guid: f9d9ae04e64d39e49b3fffbad79b6de8, type: 3}
   m_PrefabInstance: {fileID: 1167234209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1571065577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2138011099154488624, guid: 0db1c83caeb33854ba74c7542b06fa17, type: 3}
+  m_PrefabInstance: {fileID: 4120259778954683176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1604434897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4120259777518229753, guid: 0db1c83caeb33854ba74c7542b06fa17, type: 3}
@@ -1286,6 +1291,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1068604733675349301, guid: 87626362285010348a90dfbdf6e3f833, type: 3}
+      propertyPath: replayUI
+      value: 
+      objectReference: {fileID: 1571065577}
     - target: {fileID: 1068604733675349301, guid: 87626362285010348a90dfbdf6e3f833, type: 3}
       propertyPath: completeLevelUI
       value: 
