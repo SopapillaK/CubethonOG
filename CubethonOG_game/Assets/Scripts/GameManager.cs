@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,9 +9,21 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
     public GameObject replayUI;
+    public GameObject whoopsUI;
     bool instantReplay = false;
     GameObject player;
     float replayStartTime;
+    public AudioSource grunt;
+
+    private void OnEnable()
+    {
+        PlayerCollision.OnHitObstacle += EndGame;
+    }
+
+    private void OnDisable()
+    {
+        PlayerCollision.OnHitObstacle -= EndGame;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +52,24 @@ public class GameManager : MonoBehaviour
         completeLevelUI.SetActive(true);
     }
 
-    public void EndGame()
+    public void EndGame(Collision collisionInfo)
     {
-        if (gameHasEnded == false)
+        player.GetComponent<PlayerMovement>().enabled = false;
+        PlayerCollision.OnHitObstacle -= EndGame;
+
+        if (collisionInfo != null)
+        {
+            Debug.Log("Hit: " + collisionInfo.collider.name);
+            whoopsUI.SetActive(true);
+            grunt.Play();
+         
+        }
+
+        // this flag prevents responding to multiple hit events:
+        if (!gameHasEnded)
         {
             gameHasEnded = true;
-            Debug.Log("Game Over");
-            replayUI.SetActive(false);
-            instantReplay = false;
-            Invoke("Restart", restartDelay);
+            Invoke("Restart", 2f);
         }
     }
 

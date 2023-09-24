@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.position.y < -1f)
         {
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().EndGame(null);
         }
     }
 
