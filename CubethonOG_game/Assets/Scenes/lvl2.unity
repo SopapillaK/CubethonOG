@@ -1300,6 +1300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4120259778954683177}
     - target: {fileID: 1068604733675349301, guid: 87626362285010348a90dfbdf6e3f833, type: 3}
+      propertyPath: colorFilterUI
+      value: 
+      objectReference: {fileID: 4120259778954683178}
+    - target: {fileID: 1068604733675349301, guid: 87626362285010348a90dfbdf6e3f833, type: 3}
       propertyPath: completeLevelUI
       value: 
       objectReference: {fileID: 1604434897}
@@ -1506,6 +1510,11 @@ PrefabInstance:
 --- !u!1 &4120259778954683177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 942059397, guid: 0db1c83caeb33854ba74c7542b06fa17, type: 3}
+  m_PrefabInstance: {fileID: 4120259778954683176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4120259778954683178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 443265912, guid: 0db1c83caeb33854ba74c7542b06fa17, type: 3}
   m_PrefabInstance: {fileID: 4120259778954683176}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4629325293194294553

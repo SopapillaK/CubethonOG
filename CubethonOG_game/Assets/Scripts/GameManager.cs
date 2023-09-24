@@ -14,15 +14,22 @@ public class GameManager : MonoBehaviour
     GameObject player;
     float replayStartTime;
     public AudioSource grunt;
+    public GameObject colorFilterUI;
 
     private void OnEnable()
     {
         PlayerCollision.OnHitObstacle += EndGame;
+        PlaySound.OnHitPlaySound += PlaySound_OnPlaySound;
+        ColorChange.OnHitColorChange += ColorChange_OnColorChange;
+
     }
 
     private void OnDisable()
     {
         PlayerCollision.OnHitObstacle -= EndGame;
+        PlaySound.OnHitPlaySound -= PlaySound_OnPlaySound;
+        ColorChange.OnHitColorChange += ColorChange_OnColorChange;
+
     }
 
     // Start is called before the first frame update
@@ -35,6 +42,27 @@ public class GameManager : MonoBehaviour
         {
             instantReplay = true;
             replayStartTime = Time.timeSinceLevelLoad;
+        }
+
+    }
+
+    private void PlaySound_OnPlaySound(Collision playSound)
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        if (playSound != null)
+        {
+            grunt.Play();
+
+        }
+    }
+
+    private void ColorChange_OnColorChange(Collision colorChange)
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        if (colorChange != null)
+        {
+            colorFilterUI.SetActive(true);
+
         }
     }
 
@@ -61,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Hit: " + collisionInfo.collider.name);
             whoopsUI.SetActive(true);
-            grunt.Play();
+            //grunt.Play();
          
         }
 
