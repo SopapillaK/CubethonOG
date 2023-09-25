@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerCollision.OnHitObstacle -= EndGame;
         PlaySound.OnHitPlaySound -= PlaySound_OnPlaySound;
-        ColorChange.OnHitColorChange += ColorChange_OnColorChange;
+        ColorChange.OnHitColorChange -= ColorChange_OnColorChange;
 
     }
 
@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
     private void ColorChange_OnColorChange(Collision colorChange)
     {
         player.GetComponent<PlayerMovement>().enabled = false;
-        ColorChange.OnHitColorChange += ColorChange_OnColorChange;
         if (colorChange != null)
         {
             colorFilterUI.SetActive(true);
